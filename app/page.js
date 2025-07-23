@@ -1,49 +1,54 @@
-'use client'
+/** @format */
 
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Html, useGLTF } from '@react-three/drei'
-import { Suspense } from 'react'
+"use client";
+
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Html, useGLTF } from "@react-three/drei";
+import { Suspense } from "react";
+import ScreenContent from "./components/ScreenContent";
 
 function Laptop() {
-  const { scene } = useGLTF('/desktop.glb')
+  const { scene } = useGLTF("/desktop.glb");
 
   return (
     <primitive object={scene}>
-      <Html
-        position={[0, 1.1, -0.01]} // Ajustar según tu pantalla
-        transform
-        distanceFactor={1.5}
-        occlude
-        style={{ pointerEvents: 'auto' }}
-      >
-        <div style={{
-          background: 'rgba(0,0,0,0.6)',
-          padding: '1em',
-          borderRadius: '10px',
-          color: 'white',
-          textAlign: 'center',
-          width: '200px',
-        }}>
-          <h2>Gonzalo Gómez Pizarro</h2>
-          <p>Full Stack Developer</p>
-          <a href="https://github.com/tuusuario" target="_blank">GitHub</a><br />
-          <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a>
-        </div>
-      </Html>
+      <ScreenContent />
     </primitive>
-  )
+  );
+}
+
+function Floor() {
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+      <planeGeometry args={[20000, 20000]} />
+      <meshStandardMaterial color="#292929" />
+    </mesh>
+  );
 }
 
 export default function Home() {
   return (
-    <main style={{ height: '100vh', margin: 0 }}>
-      <Canvas camera={{ position: [0, 1, 3], fov: 35 }}>
-        <ambientLight intensity={1} />
+    <main style={{ height: "100vh", margin: 0 }}>
+      <Canvas camera={{ position: [3, 3, 3] }} style={{ background: "#1c1c1c" }}>
+        <ambientLight intensity={2} />
         <Suspense fallback={null}>
+          <Floor />
           <Laptop />
         </Suspense>
-        <OrbitControls />
+        <OrbitControls
+          target={[0, 118, 10]}
+          enablePan={false}
+          enableZoom={true}
+          enableRotate={true}
+          maxPolarAngle={Math.PI / 2.2}
+          minPolarAngle={Math.PI / 6}
+          maxAzimuthAngle={0}
+          minAzimuthAngle={Math.PI}
+          maxDistance={80}
+          minDistance={0}
+        />
       </Canvas>
     </main>
-  )
+  );
 }
+
