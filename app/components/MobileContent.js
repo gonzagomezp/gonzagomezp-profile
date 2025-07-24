@@ -111,13 +111,13 @@ export default function DesktopContent() {
   return (
     <Html transform occlude position={[-.005, 0.03, -.07097]} rotation={[0,Math.PI,0]} scale={0.1}>
       <div
-        className="w-[275px] h-[545px] rounded-b-[40px] bg-black text-gray-100 overflow-hidden relative border border-gray-700"
+        className="w-[275px] h-[545px] rounded-b-[40px] bg-gray-900 rounded-t-lg text-gray-100 overflow-hidden relative border border-gray-700"
         style={{
           fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
         }}
       >
         {/* iPhone-style Header */}
-        <div className="flex items-center justify-between p-4 bg-gray-900 border-b border-gray-700">
+        <div className="flex items-center justify-between p-4 border-b-[4px] border-gray-700">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -155,7 +155,7 @@ export default function DesktopContent() {
         )}
 
         {/* Content Area with scroll functionality */}
-        <div className="h-[485px] overflow-hidden relative bg-gray-900">
+        <div className="h-[485px] overflow-hidden relative">
           <div
             ref={contentRef}
             className="absolute top-0 left-0 w-full"
