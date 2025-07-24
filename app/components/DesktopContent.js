@@ -52,13 +52,13 @@ export default function DesktopContent() {
       default:
         return (
           <div className="text-center">
-            <div className="text-[50px] mb-4 text-green-300">{">>> WELCOME TO MY 3D PORTFOLIO <<<"}</div>
-            <div className="text-[120px] text-green-400 font-bold tracking-wider">GONZALO GÓMEZ PIZARRO</div>
-            <div className="text-[50px] mb-8 text-green-300">
+            <div className="text-[50px] mb-4 text-green-400">{">>> WELCOME TO MY 3D PORTFOLIO <<<"}</div>
+            <div className="text-[120px] text-gray-100 font-bold tracking-wider mb-4">GONZALO GÓMEZ PIZARRO</div>
+            <div className="text-[50px] mb-8 text-gray-400">
               [JUNIOR FULL STACK ENGINEER] • [PYTHON | REACT.JS | GCP]
             </div>
 
-            <div className="text-center text-[30px] mb-[120px] opacity-60 mt-16 pb-8">
+            <div className="text-center text-[30px] mb-[120px] opacity-60 mt-16 pb-8 text-gray-500">
               {"< READY FOR NEW OPPORTUNITIES >"}
               <br />
               {"SELECT A SECTION TO EXPLORE..."}
@@ -67,60 +67,60 @@ export default function DesktopContent() {
             <div className="grid grid-cols-3 gap-8 mb-12">
               <button
                 onClick={() => setCurrentSection("about")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
+                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
+                  textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
+                  boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
                 }}
               >
                 [1] ABOUT
               </button>
               <button
                 onClick={() => setCurrentSection("work")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
+                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
+                  textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
+                  boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
                 }}
               >
                 [2] EXPERIENCE
               </button>
               <button
                 onClick={() => setCurrentSection("projects")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
+                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
+                  textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
+                  boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
                 }}
               >
                 [3] PROJECTS
               </button>
               <button
                 onClick={() => setCurrentSection("skills")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
+                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
+                  textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
+                  boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
                 }}
               >
                 [4] SKILLS
               </button>
               <button
                 onClick={() => setCurrentSection("education")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
+                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
+                  textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
+                  boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
                 }}
               >
                 [5] EDUCATION
               </button>
               <button
                 onClick={() => setCurrentSection("contact")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
+                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
+                  textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
+                  boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
                 }}
               >
                 [6] CONTACT
@@ -134,28 +134,28 @@ export default function DesktopContent() {
   return (
     <Html transform occlude position={[17.6, 114, 5.75]} rotation={[0, Math.PI / 2 + Math.PI, 0]} scale={1}>
       <div
-        className="w-[2080px] h-[1200px] bg-black border-4 border-green-500 text-green-400 p-8 rounded-xl font-mono shadow-2xl relative"
+        className="w-[2080px] h-[1200px] bg-black border-2 border-gray-700 text-gray-300 p-8 rounded-xl font-mono shadow-2xl relative"
         style={{
           fontFamily: "'Courier New', 'Lucida Console', 'Monaco', monospace",
-          background: "linear-gradient(45deg, #001100, #002200)",
-          boxShadow: "0 0 50px rgba(0, 255, 0, 0.3), inset 0 0 50px rgba(0, 255, 0, 0.1)",
+          background: "linear-gradient(135deg, #0a0a0a, #1a1a1a)",
+          boxShadow: "0 0 30px rgba(34, 197, 94, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.5)",
         }}
       >
         {/* Terminal Header */}
-        <div className="flex items-center justify-between mb-6 border-b-2 border-green-500 pb-4">
+        <div className="flex items-center justify-between mb-6 border-b border-gray-600 pb-4">
           <div className="flex items-center space-x-4">
             <div className="w-6 h-6 rounded-full bg-red-500"></div>
             <div className="w-6 h-6 rounded-full bg-yellow-500"></div>
             <div className="w-6 h-6 rounded-full bg-green-500"></div>
           </div>
-          <div className="text-[40px] text-green-300">PORTFOLIO.EXE</div>
+          <div className="text-[40px] text-green-400">PORTFOLIO.EXE</div>
           {currentSection !== "home" && (
             <button
               onClick={() => setCurrentSection("home")}
-              className="bg-green-800 border-4 border-green-300 text-green-100 px-8 py-4 rounded-xl text-[40px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
+              className="bg-gray-800 border-2 border-green-500 text-green-400 px-8 py-4 rounded-xl text-[40px] font-bold hover:bg-gray-700 hover:text-green-300 hover:border-green-400 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30"
               style={{
-                textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
+                textShadow: "0 0 10px rgba(34, 197, 94, 0.5)",
+                boxShadow: "0 0 15px rgba(34, 197, 94, 0.2)",
               }}
             >
               [HOME]
@@ -169,16 +169,16 @@ export default function DesktopContent() {
             <button
               onClick={() => handleScroll("up")}
               disabled={scrollY === 0}
-              className="w-[80px] h-[100px] bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" }}
+              className="w-[80px] h-[100px] bg-gray-900 border border-gray-600 text-gray-400 rounded-lg text-[35px] font-bold hover:bg-gray-800 hover:text-gray-300 hover:border-green-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ textShadow: "0 0 5px rgba(156, 163, 175, 0.3)" }}
             >
               ▲
             </button>
             <button
               onClick={() => handleScroll("down")}
               disabled={scrollY >= maxScroll}
-              className="w-[80px] h-[100px] bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" }}
+              className="w-[80px] h-[100px] bg-gray-900 border border-gray-600 text-gray-400 rounded-lg text-[35px] font-bold hover:bg-gray-800 hover:text-gray-300 hover:border-green-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ textShadow: "0 0 5px rgba(156, 163, 175, 0.3)" }}
             >
               ▼
             </button>

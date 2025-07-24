@@ -3,24 +3,24 @@
 export default function About() {
   return (
     <div className="text-left">
-      <div className="text-[60px] mb-8 text-green-300 text-center">
+      <div className="text-[60px] mb-8 text-green-400 text-center">
         {'> ABOUT ME <'}
       </div>
       
       <div className="space-y-8">
-        <div className="bg-green-950 border border-green-600 p-8 rounded-lg">
+        <div className="bg-gray-950 border border-gray-700 p-8 rounded-lg">
           <div className="text-[55px] text-green-400 mb-6 text-center">Profile Summary</div>
-          <div className="text-[50px] text-green-500 leading-relaxed space-y-4">
+          <div className="text-[50px] text-gray-300 leading-relaxed space-y-4">
             <div>
-              • Advanced Systems Engineering student and Junior Full-Stack Developer with hands-on experience in <span className="text-green-300">React.js, Python, and TypeScript</span>.
+              • Advanced Systems Engineering student and Junior Full-Stack Developer with hands-on experience in <span className="text-green-400">React.js, Python, and TypeScript</span>.
             </div>
             <div>
-              • Skilled in building scalable web applications with <span className="text-green-300">FastAPI and Next.js</span>. 
-              Experienced in database management using <span className="text-green-300">MongoDB, SQL, and Firestore (NoSQL)</span>.
+              • Skilled in building scalable web applications with <span className="text-green-400">FastAPI and Next.js</span>. 
+              Experienced in database management using <span className="text-green-400">MongoDB, SQL, and Firestore (NoSQL)</span>.
             </div>
             <div>
-              • Proficient in <span className="text-green-300">REST API development, Docker products</span>, and cloud services 
-              (<span className="text-green-300">Google Cloud Platform (GCP) and AWS interaction</span>).
+              • Proficient in <span className="text-green-400">REST API development, Docker products</span>, and cloud services 
+              (<span className="text-green-400">Google Cloud Platform (GCP) and AWS interaction</span>).
             </div>
             <div>
               • Strong problem-solving skills and adaptability to project requirements. Looking for opportunities to contribute to innovative solutions in a dynamic team environment.
@@ -29,9 +29,9 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-2 gap-8">
-          <div className="bg-green-950 border border-green-600 p-6 rounded-lg">
+          <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
             <div className="text-[55px] text-green-400 mb-4">Personal Info</div>
-            <div className="text-[50px] text-green-500 space-y-3">
+            <div className="text-[50px] text-gray-300 space-y-3">
               <div>📍 Location: Argentina</div>
               <div>💼 Status: DevOps Trainee at Epam Systems</div>
               <div>🎓 Student: Systems Engineering at Universidad Católica de Córdoba</div>
@@ -39,9 +39,9 @@ export default function About() {
             </div>
           </div>
 
-          <div className="bg-green-950 border border-green-600 p-6 rounded-lg">
+          <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
             <div className="text-[55px] text-green-400 mb-4">Soft Strengths</div>
-            <div className="text-[50px] text-green-500 space-y-3">
+            <div className="text-[50px] text-gray-300 space-y-3">
               <div>⚡ Proactivity</div>
               <div>🤝 problem Solving</div>
               <div>🔄 Adaptable</div>
@@ -51,9 +51,9 @@ export default function About() {
           </div>
         </div>
 
-        <div className="bg-green-950 border border-green-600 p-6 rounded-lg">
+        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
           <div className="text-[55px] text-green-400 mb-4 text-center">Career Goals</div>
-          <div className="text-[50px] text-green-500 leading-relaxed text-center space-y-3">
+          <div className="text-[50px] text-gray-300 leading-relaxed text-center space-y-3">
             <div>
               Seeking opportunities to contribute to innovative projects in full-stack development
             </div>
@@ -66,7 +66,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="text-center text-[55px] text-green-300 mt-8">
+        <div className="text-center text-[55px] text-green-400 mt-8">
           {'>>> READY TO BUILD THE FUTURE TOGETHER <<<'}
         </div>
       </div>
