@@ -62,6 +62,9 @@ function WelcomeOverlay({ onStart, isAnimating }) {
         >
           <span className="relative text-base sm:text-xl z-10">INICIAR AVENTURA 🚀</span>
         </button>
+        <div className="mt-4 text-green-400 font-mono text-sm opacity-70">
+          Version 2025.07.24
+        </div>
       </div>
       <style jsx>{`
         @keyframes gentleGlow {
