@@ -58,7 +58,7 @@ export default function DesktopContent() {
               Junior Full Stack Engineer <br /> Python | React.js | GCP
             </div>
 
-            <div className="text-xs mb-8 text-gray-500">
+            <div className="text-xs mb-8 text-gray-300">
               Ready for new opportunities
               <br />
               Select a section to explore...
@@ -111,7 +111,7 @@ export default function DesktopContent() {
   return (
     <Html transform occlude position={[-.005, 0.03, -.07097]} rotation={[0,Math.PI,0]} scale={0.1}>
       <div
-        className="w-[275px] h-[545px] rounded-b-[40px] bg-gray-900 rounded-t-lg text-gray-100 overflow-hidden relative border border-gray-700"
+        className="w-[275px] h-[545px] rounded-b-[40px] bg-neutral-900 rounded-t-lg text-gray-100 overflow-hidden relative border border-gray-700"
         style={{
           fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
         }}
