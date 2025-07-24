@@ -35,7 +35,7 @@ export default function AboutMobile() {
           </div>
 
           <div className="bg-gray-800 rounded-xl p-4 shadow-lg">
-            <div className="text-lg font-semibold text-gray-100 mb-3">Key Strengths</div>
+            <div className="text-lg font-semibold text-gray-100 mb-3">Soft Strengths</div>
             <div className="text-sm text-gray-300 space-y-2">
               <div>⚡ Proactive</div>
               <div>🤝 Problem Solving</div>

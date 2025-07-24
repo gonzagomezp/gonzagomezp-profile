@@ -1,8 +1,29 @@
 /** @format */
 
+import { useState } from "react";
+
 export default function ContactMobile() {
+  const [copiedItem, setCopiedItem] = useState("");
+
+  const copyToClipboard = async (text, itemName) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedItem(itemName);
+      setTimeout(() => setCopiedItem(""), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   return (
-    <div className="px-4 py-6">
+    <div className="px-4 py-6 relative">
+      {/* Toast notification */}
+      {copiedItem && (
+        <div className="fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg text-sm z-50 shadow-lg">
+          {copiedItem} copied!
+        </div>
+      )}
+
       <div className="text-2xl font-bold mb-6 text-center text-gray-100">
         Contact Information
       </div>
@@ -10,9 +31,25 @@ export default function ContactMobile() {
       <div className="space-y-4">
         <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-4 text-white text-center shadow-lg">
           <div className="text-lg font-semibold mb-3">Get In Touch</div>
-          <div className="text-sm space-y-2">
-            <div>📧 gonzalogomezpizarro@gmail.com</div>
-            <div>📱 +54 351 2546510</div>
+          <div className="text-sm space-y-3">
+            <div className="flex flex-col space-y-2">
+              <span>gonzalogomezpizarro@gmail.com</span>
+              <button
+                onClick={() => copyToClipboard("gonzalogomezpizarro@gmail.com", "Email")}
+                className="bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded text-xs transition-all duration-300 w-full"
+              >
+                📋 Copy Email
+              </button>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <span>📱 +54 351 2546510</span>
+              <button
+                onClick={() => copyToClipboard("+54 351 2546510", "Phone")}
+                className="bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded text-xs transition-all duration-300 w-full"
+              >
+                📋 Copy Phone
+              </button>
+            </div>
             <div>📍 Argentina</div>
             <div>💼 Remote Contractor</div>
           </div>
@@ -39,13 +76,20 @@ export default function ContactMobile() {
               <span className="text-sm text-gray-200">💻 GitHub Profile</span>
               <span className="text-xs text-gray-400">→</span>
             </a>
-            <a 
-              href="mailto:gonzalogomezpizarro@gmail.com"
-              className="flex items-center justify-between p-3 bg-green-900 rounded-lg hover:bg-green-800 transition-colors"
-            >
-              <span className="text-sm text-green-300">📧 Send Email</span>
-              <span className="text-xs text-green-400">→</span>
-            </a>
+            <div className="flex items-center justify-between p-3 bg-green-900 rounded-lg">
+              <a 
+                href="mailto:gonzalogomezpizarro@gmail.com"
+                className="flex-1"
+              >
+                <span className="text-sm text-green-300">📧 Send Email</span>
+              </a>
+              <button
+                onClick={() => copyToClipboard("gonzalogomezpizarro@gmail.com", "Email")}
+                className="bg-green-700 hover:bg-green-600 text-white px-2 py-1 rounded text-xs transition-all duration-300 ml-2"
+              >
+                📋 Copy
+              </button>
+            </div>
           </div>
         </div>
 
