@@ -28,23 +28,23 @@ export default function SkillsMobile() {
   ];
 
   return (
-    <div className="px-4 py-6">
-      <div className="text-2xl font-bold mb-6 text-center text-gray-800">
+    <div className="px-4 py-6 bg-gray-900">
+      <div className="text-2xl font-bold mb-6 text-center text-gray-100">
         Technical Skills
       </div>
       
       <div className="space-y-4">
         {skills.map((skillGroup) => (
-          <div key={skillGroup.category} className="bg-white rounded-xl p-4 shadow-lg border border-gray-200">
-            <div className="text-lg font-semibold text-blue-600 mb-3">{skillGroup.category}</div>
+          <div key={skillGroup.category} className="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div className="text-lg font-semibold text-blue-400 mb-3">{skillGroup.category}</div>
             <div className="space-y-3">
               {skillGroup.items.map((skill) => (
                 <div key={skill.name}>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm text-gray-700">{skill.name}</span>
-                    <span className="text-xs text-gray-500">{skill.level}%</span>
+                    <span className="text-sm text-gray-200">{skill.name}</span>
+                    <span className="text-xs text-gray-400">{skill.level}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-gray-700 rounded-full h-2">
                     <div 
                       className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${skill.level}%` }}

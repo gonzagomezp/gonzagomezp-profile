@@ -52,9 +52,9 @@ export default function DesktopContent() {
       default:
         return (
           <div className="text-center px-4 py-6">
-            <div className="text-lg mb-4 text-gray-800 font-semibold">Welcome to my Portfolio</div>
-            <div className="text-3xl text-blue-600 font-bold mb-2">GONZALO GÓMEZ PIZARRO</div>
-            <div className="text-sm mb-6 text-gray-950">
+            <div className="text-lg mb-4 text-gray-300 font-semibold">Welcome to my Portfolio</div>
+            <div className="text-3xl text-blue-400 font-bold mb-2">GONZALO GÓMEZ PIZARRO</div>
+            <div className="text-sm mb-6 text-gray-200">
               Junior Full Stack Engineer <br /> Python | React.js | GCP
             </div>
 
@@ -68,37 +68,37 @@ export default function DesktopContent() {
             <div className="grid grid-cols-2 gap-3 mb-6">
               <button
                 onClick={() => setCurrentSection("about")}
-                className="bg-blue-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-blue-600 transition-all duration-300 shadow-lg"
+                className="bg-blue-600 text-white p-3 rounded-xl text-sm font-semibold hover:bg-blue-500 transition-all duration-300 shadow-lg"
               >
                 About
               </button>
               <button
                 onClick={() => setCurrentSection("work")}
-                className="bg-purple-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-purple-600 transition-all duration-300 shadow-lg"
+                className="bg-purple-600 text-white p-3 rounded-xl text-sm font-semibold hover:bg-purple-500 transition-all duration-300 shadow-lg"
               >
                 Experience
               </button>
               <button
                 onClick={() => setCurrentSection("projects")}
-                className="bg-green-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-green-600 transition-all duration-300 shadow-lg"
+                className="bg-green-600 text-white p-3 rounded-xl text-sm font-semibold hover:bg-green-500 transition-all duration-300 shadow-lg"
               >
                 Projects
               </button>
               <button
                 onClick={() => setCurrentSection("skills")}
-                className="bg-orange-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-orange-600 transition-all duration-300 shadow-lg"
+                className="bg-orange-600 text-white p-3 rounded-xl text-sm font-semibold hover:bg-orange-500 transition-all duration-300 shadow-lg"
               >
                 Skills
               </button>
               <button
                 onClick={() => setCurrentSection("education")}
-                className="bg-indigo-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-indigo-600 transition-all duration-300 shadow-lg"
+                className="bg-indigo-600 text-white p-3 rounded-xl text-sm font-semibold hover:bg-indigo-500 transition-all duration-300 shadow-lg"
               >
                 Education
               </button>
               <button
                 onClick={() => setCurrentSection("contact")}
-                className="bg-pink-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-pink-600 transition-all duration-300 shadow-lg"
+                className="bg-pink-600 text-white p-3 rounded-xl text-sm font-semibold hover:bg-pink-500 transition-all duration-300 shadow-lg"
               >
                 Contact
               </button>
@@ -111,23 +111,23 @@ export default function DesktopContent() {
   return (
     <Html transform occlude position={[-.005, 0.03, -.07097]} rotation={[0,Math.PI,0]} scale={0.1}>
       <div
-        className="w-[275px] h-[545px] rounded-b-[40px] bg-opacity-90 bg-white text-gray-800 overflow-hidden relative"
+        className="w-[275px] h-[545px] rounded-b-[40px] bg-black text-gray-100 overflow-hidden relative border border-gray-700"
         style={{
           fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
         }}
       >
         {/* iPhone-style Header */}
-        <div className="flex items-center justify-between p-4  border-b border-gray-200">
+        <div className="flex items-center justify-between p-4 bg-gray-900 border-b border-gray-700">
           <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-            <div className="w-3 h-3 rounded-full bg-green-400"></div>
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
-          <div className="text-sm font-semibold text-gray-700">Portfolio</div>
+          <div className="text-sm font-semibold text-gray-200">Portfolio</div>
           {currentSection !== "home" && (
             <button
               onClick={() => setCurrentSection("home")}
-              className="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs font-semibold hover:bg-blue-600 transition-all duration-300"
+              className="bg-blue-600 text-white px-3 py-1 rounded-lg text-xs font-semibold hover:bg-blue-500 transition-all duration-300"
             >
               Home
             </button>
@@ -140,14 +140,14 @@ export default function DesktopContent() {
             <button
               onClick={() => handleScroll("up")}
               disabled={scrollY === 0}
-              className="w-8 h-10 bg-neutral-800 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-950 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+              className="w-8 h-10 bg-gray-950 text-gray-300 rounded-full text-xs font-bold hover:bg-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▲
             </button>
             <button
               onClick={() => handleScroll("down")}
               disabled={scrollY >= maxScroll}
-              className="w-8 h-10 bg-neutral-800 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-950 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+              className="w-8 h-10 bg-gray-950 text-gray-300 rounded-full text-xs font-bold hover:bg-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▼
             </button>
@@ -155,7 +155,7 @@ export default function DesktopContent() {
         )}
 
         {/* Content Area with scroll functionality */}
-        <div className="h-[485px] overflow-hidden relative">
+        <div className="h-[485px] overflow-hidden relative bg-gray-900">
           <div
             ref={contentRef}
             className="absolute top-0 left-0 w-full"
