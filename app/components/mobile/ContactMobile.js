@@ -2,7 +2,7 @@
 
 export default function ContactMobile() {
   return (
-    <div className="px-4 py-6 bg-gray-900">
+    <div className="px-4 py-6">
       <div className="text-2xl font-bold mb-6 text-center text-gray-100">
         Contact Information
       </div>

@@ -48,31 +48,31 @@ function WelcomeOverlay({ onStart, isAnimating }) {
       }`}
       style={{ zIndex: 99999 }}
     >
-      <button
-        onClick={onStart}
-        className="relative mx-20 bg-gradient-to-r from-purple-800 to-pink-600 text-green-300 px-16 py-8 rounded-lg text-3xl font-mono font-bold hover:from-purple-700 hover:to-pink-500 transform hover:scale-110 transition-all duration-300 shadow-2xl animate-pulse border-4 border-green-400 hover:border-yellow-400"
-        style={{
-          fontFamily: "monospace",
-          textShadow: "0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00",
-          boxShadow: "0 0 20px #ff00ff, 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.2)",
-          background: "linear-gradient(45deg, #1a1a2e, #16213e, #0f3460)",
-          backgroundSize: "400% 400%",
-          animation: "gradientShift 3s ease infinite, pulse 2s infinite",
-        }}
-      >
-        <span className="relative z-10">INICIAR AVENTURA 🚀</span>
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-20 rounded-lg animate-ping"></div>
-      </button>
+      <div className="text-center mx-4 max-w-3xl">
+        <button
+          onClick={onStart}
+          className="relative bg-gradient-to-r from-purple-800 to-pink-600 text-green-300 px-10 py-5 rounded-lg text-xl md:text-2xl font-mono font-bold hover:from-purple-700 hover:to-pink-500 transform hover:scale-105 transition-all duration-500 shadow-lg border-2 border-green-400 hover:border-yellow-400"
+          style={{
+            fontFamily: "monospace",
+            boxShadow: "0 0 15px rgba(255, 0, 255, 0.3)",
+            background: "linear-gradient(45deg, #1a1a2e, #16213e, #0f3460)",
+            backgroundSize: "200% 200%",
+            animation: "gentleGlow 4s ease-in-out infinite",
+          }}
+        >
+          <span className="relative text-base sm:text-xl z-10">INICIAR AVENTURA 🚀</span>
+        </button>
+      </div>
       <style jsx>{`
-        @keyframes gradientShift {
-          0% {
+        @keyframes gentleGlow {
+          0%,
+          100% {
             background-position: 0% 50%;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
           }
           50% {
             background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
           }
         }
       `}</style>
