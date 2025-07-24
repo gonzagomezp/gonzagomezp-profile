@@ -8,7 +8,7 @@ export default function Education() {
       </div>
       
       <div className="space-y-8">
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[60px] text-green-400 mb-2">Bachelor's in Systems Engineering</div>
           <div className="text-[50px] text-gray-400 mb-2">Universidad Católica de Córdoba • 2021 - December 2025</div>
           <div className="text-[50px] text-gray-300 space-y-2">
@@ -20,7 +20,7 @@ export default function Education() {
           </div>
         </div>
 
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[60px] text-green-400 mb-2">High School with Intensive English Program</div>
           <div className="text-[50px] text-gray-400 mb-2">Instituto María de Nazareth • Completed</div>
           <div className="text-[50px] text-gray-300 space-y-2">
@@ -31,7 +31,7 @@ export default function Education() {
           </div>
         </div>
 
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[60px] text-green-400 mb-4 text-center">Language Certifications</div>
           <div className="text-[50px] text-gray-300 space-y-3 text-center">
             <div>🏆 Cambridge First Certificate (B2 Level)</div>
@@ -40,7 +40,7 @@ export default function Education() {
           </div>
         </div>
 
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[60px] text-green-400 mb-4 text-center">Continuous Learning</div>
           <div className="text-[50px] text-gray-300 space-y-2 text-center">
             <div>• Self-taught in modern web development frameworks</div>

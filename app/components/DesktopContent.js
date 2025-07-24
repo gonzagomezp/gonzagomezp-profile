@@ -67,7 +67,7 @@ export default function DesktopContent() {
             <div className="grid grid-cols-3 gap-8 mb-12">
               <button
                 onClick={() => setCurrentSection("about")}
-                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                className="bg-gray-900 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
                   textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
                   boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
@@ -77,7 +77,7 @@ export default function DesktopContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("work")}
-                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                className="bg-gray-900 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
                   textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
                   boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
@@ -87,7 +87,7 @@ export default function DesktopContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("projects")}
-                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                className="bg-gray-900 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
                   textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
                   boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
@@ -97,7 +97,7 @@ export default function DesktopContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("skills")}
-                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                className="bg-gray-900 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
                   textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
                   boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
@@ -107,7 +107,7 @@ export default function DesktopContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("education")}
-                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                className="bg-gray-900 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
                   textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
                   boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
@@ -117,7 +117,7 @@ export default function DesktopContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("contact")}
-                className="bg-gray-900 border-2 border-gray-600 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                className="bg-gray-900 text-gray-300 p-8 rounded-xl text-[50px] font-bold hover:bg-gray-800 hover:text-green-400 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
                 style={{
                   textShadow: "0 0 10px rgba(156, 163, 175, 0.3)",
                   boxShadow: "0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05)",
@@ -134,7 +134,7 @@ export default function DesktopContent() {
   return (
     <Html transform occlude position={[17.6, 114, 5.75]} rotation={[0, Math.PI / 2 + Math.PI, 0]} scale={1}>
       <div
-        className="w-[2080px] h-[1200px] bg-black border-2 border-gray-700 text-gray-300 p-8 rounded-xl font-mono shadow-2xl relative"
+        className="w-[2080px] h-[1200px] bg-black text-gray-300 p-8 rounded-xl font-mono shadow-2xl relative"
         style={{
           fontFamily: "'Courier New', 'Lucida Console', 'Monaco', monospace",
           background: "linear-gradient(135deg, #0a0a0a, #1a1a1a)",
@@ -142,7 +142,7 @@ export default function DesktopContent() {
         }}
       >
         {/* Terminal Header */}
-        <div className="flex items-center justify-between mb-6 border-b border-gray-600 pb-4">
+        <div className="flex items-center justify-between mb-6 border-b-[4px] border-gray-600 pb-4">
           <div className="flex items-center space-x-4">
             <div className="w-6 h-6 rounded-full bg-red-500"></div>
             <div className="w-6 h-6 rounded-full bg-yellow-500"></div>
@@ -152,7 +152,7 @@ export default function DesktopContent() {
           {currentSection !== "home" && (
             <button
               onClick={() => setCurrentSection("home")}
-              className="bg-gray-800 border-2 border-green-500 text-green-400 px-8 py-4 rounded-xl text-[40px] font-bold hover:bg-gray-700 hover:text-green-300 hover:border-green-400 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30"
+              className="bg-gray-800 text-green-400 px-8 py-4 rounded-xl text-[40px] font-bold hover:bg-gray-700 hover:text-green-300 hover:border-green-400 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30"
               style={{
                 textShadow: "0 0 10px rgba(34, 197, 94, 0.5)",
                 boxShadow: "0 0 15px rgba(34, 197, 94, 0.2)",
@@ -169,7 +169,7 @@ export default function DesktopContent() {
             <button
               onClick={() => handleScroll("up")}
               disabled={scrollY === 0}
-              className="w-[80px] h-[100px] bg-gray-900 border border-gray-600 text-gray-400 rounded-lg text-[35px] font-bold hover:bg-gray-800 hover:text-gray-300 hover:border-green-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-[80px] h-[100px] bg-green-900 text-green-400 rounded-lg text-[35px] font-bold hover:bg-green-800 hover:text-green-300 hover:border-green-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ textShadow: "0 0 5px rgba(156, 163, 175, 0.3)" }}
             >
               ▲
@@ -177,7 +177,7 @@ export default function DesktopContent() {
             <button
               onClick={() => handleScroll("down")}
               disabled={scrollY >= maxScroll}
-              className="w-[80px] h-[100px] bg-gray-900 border border-gray-600 text-gray-400 rounded-lg text-[35px] font-bold hover:bg-gray-800 hover:text-gray-300 hover:border-green-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-[80px] h-[100px] bg-green-900 text-green-400 rounded-lg text-[35px] font-bold hover:bg-green-800 hover:text-green-300 hover:border-green-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ textShadow: "0 0 5px rgba(156, 163, 175, 0.3)" }}
             >
               ▼

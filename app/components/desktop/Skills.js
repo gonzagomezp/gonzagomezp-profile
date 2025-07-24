@@ -8,7 +8,7 @@ export default function Skills() {
       </div>
       
       <div className="grid grid-cols-2 gap-8">
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[45px] text-green-400 mb-4">Frontend</div>
           <div className="text-[40px] text-gray-300 space-y-2">
             <div>• React.js / Next.js ████████████ 90%</div>
@@ -19,7 +19,7 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[45px] text-green-400 mb-4">Backend</div>
           <div className="text-[40px] text-gray-300 space-y-2">
             <div>• Python / FastAPI ████████████ 95%</div>
@@ -30,7 +30,7 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[45px] text-green-400 mb-4">Database</div>
           <div className="text-[40px] text-gray-300 space-y-2">
             <div>• MongoDB ████████████ 90%</div>
@@ -40,7 +40,7 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[45px] text-green-400 mb-4">Cloud & DevOps</div>
           <div className="text-[40px] text-gray-300 space-y-2">
             <div>• GCP ████████████ 85%</div>

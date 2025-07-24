@@ -8,7 +8,7 @@ export default function About() {
       </div>
       
       <div className="space-y-8">
-        <div className="bg-gray-950 border border-gray-700 p-8 rounded-lg">
+        <div className="bg-gray-950 p-8 rounded-lg">
           <div className="text-[55px] text-green-400 mb-6 text-center">Profile Summary</div>
           <div className="text-[50px] text-gray-300 leading-relaxed space-y-4">
             <div>
@@ -29,7 +29,7 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-2 gap-8">
-          <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+          <div className="bg-gray-950 p-6 rounded-lg">
             <div className="text-[55px] text-green-400 mb-4">Personal Info</div>
             <div className="text-[50px] text-gray-300 space-y-3">
               <div>📍 Location: Argentina</div>
@@ -39,7 +39,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+          <div className="bg-gray-950 p-6 rounded-lg">
             <div className="text-[55px] text-green-400 mb-4">Soft Strengths</div>
             <div className="text-[50px] text-gray-300 space-y-3">
               <div>⚡ Proactivity</div>
@@ -51,7 +51,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="bg-gray-950 border border-gray-700 p-6 rounded-lg">
+        <div className="bg-gray-950 p-6 rounded-lg">
           <div className="text-[55px] text-green-400 mb-4 text-center">Career Goals</div>
           <div className="text-[50px] text-gray-300 leading-relaxed text-center space-y-3">
             <div>

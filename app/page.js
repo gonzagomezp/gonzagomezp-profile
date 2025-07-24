@@ -58,7 +58,7 @@ export default function Home() {
       minPolarAngle: Math.PI / 6,
       maxAzimuthAngle: -Math.PI / 4,
       minAzimuthAngle: -4*(Math.PI / 4),
-      maxDistance: 40,
+      maxDistance: 30,
       minDistance: 0,
     },
     mobile: {
