@@ -56,7 +56,7 @@ export default function Home() {
         </Suspense>
         <OrbitControls
           target={[0, 118, 10]}
-          /* enablePan={false}
+          enablePan={false} 
           enableZoom={true}
           enableRotate={true}
           maxPolarAngle={Math.PI / 2.2}
@@ -64,7 +64,7 @@ export default function Home() {
           maxAzimuthAngle={0}
           minAzimuthAngle={Math.PI}
           maxDistance={80}
-          minDistance={0} */
+          minDistance={0} 
         />
       </Canvas>
     </main>
