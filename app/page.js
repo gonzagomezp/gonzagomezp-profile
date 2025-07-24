@@ -60,7 +60,7 @@ function WelcomeOverlay({ onStart, isAnimating }) {
             animation: "gentleGlow 4s ease-in-out infinite",
           }}
         >
-          <span className="relative text-base sm:text-xl z-10">INICIAR AVENTURA 🚀</span>
+          <span className="relative text-base sm:text-xl z-10">START ADVENTURE 🚀</span>
         </button>
         <div className="mt-4 text-green-400 font-mono text-sm opacity-70">
           Version 2025.07.24
