@@ -5,17 +5,35 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, useGLTF } from "@react-three/drei";
 import { Suspense } from "react";
-import ScreenContent from "./components/ScreenContent";
+import DesktopContent from "./components/DesktopContent";
+import MobileContent from "./components/MobileContent";
 
 function Laptop() {
   const { scene } = useGLTF("/desktop.glb");
 
   return (
     <primitive object={scene}>
-      <ScreenContent />
+      <DesktopContent />
     </primitive>
   );
 }
+
+function Smartphone() {
+  const { scene } = useGLTF("/phone.glb");
+
+  return (
+    <primitive 
+      object={scene} 
+      position={[2, 89.5, 25]} 
+      scale={10}
+      rotation={[Math.PI/2, 0, -Math.PI/2]}
+      ambientLight={<ambientLight intensity={10} />}
+    >
+      <MobileContent />
+    </primitive>
+  );
+}
+
 
 function Floor() {
   return (
@@ -34,10 +52,11 @@ export default function Home() {
         <Suspense fallback={null}>
           <Floor />
           <Laptop />
+          <Smartphone />
         </Suspense>
         <OrbitControls
           target={[0, 118, 10]}
-          enablePan={false}
+          /* enablePan={false}
           enableZoom={true}
           enableRotate={true}
           maxPolarAngle={Math.PI / 2.2}
@@ -45,7 +64,7 @@ export default function Home() {
           maxAzimuthAngle={0}
           minAzimuthAngle={Math.PI}
           maxDistance={80}
-          minDistance={0}
+          minDistance={0} */
         />
       </Canvas>
     </main>

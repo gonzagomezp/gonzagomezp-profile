@@ -9,7 +9,7 @@ import Contact from "./Contact";
 import Education from "./Education";
 import About from "./About";
 
-export default function ScreenContent() {
+export default function DesktopContent() {
   const [currentSection, setCurrentSection] = useState("home");
   const [scrollY, setScrollY] = useState(0);
   const contentRef = useRef(null);
@@ -20,14 +20,14 @@ export default function ScreenContent() {
     if (contentRef.current) {
       const contentHeight = contentRef.current.scrollHeight;
       const containerHeight = 980; // Fixed container height
-      const calculatedMaxScroll = Math.max(0, contentHeight - containerHeight + 500); // Increased buffer
+      const calculatedMaxScroll = Math.max(0, contentHeight - containerHeight + 3000); // Increased buffer
       setMaxScroll(calculatedMaxScroll);
       setScrollY(0); // Reset scroll when changing sections
     }
   }, [currentSection]);
 
   const handleScroll = (direction) => {
-    const scrollAmount = 500; // Increased scroll amount
+    const scrollAmount = 200; // Increased scroll amount
     if (direction === "up") {
       setScrollY((prev) => Math.max(0, prev - scrollAmount));
     } else {
@@ -67,7 +67,7 @@ export default function ScreenContent() {
             <div className="grid grid-cols-3 gap-8 mb-12">
               <button
                 onClick={() => setCurrentSection("about")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 hover:scale-105 transform"
+                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
                 style={{
                   textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
                   boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
@@ -77,7 +77,7 @@ export default function ScreenContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("work")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 hover:scale-105 transform"
+                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
                 style={{
                   textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
                   boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
@@ -87,7 +87,7 @@ export default function ScreenContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("projects")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 hover:scale-105 transform"
+                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
                 style={{
                   textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
                   boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
@@ -97,7 +97,7 @@ export default function ScreenContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("skills")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 hover:scale-105 transform"
+                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
                 style={{
                   textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
                   boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
@@ -107,7 +107,7 @@ export default function ScreenContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("education")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 hover:scale-105 transform"
+                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
                 style={{
                   textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
                   boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
@@ -117,7 +117,7 @@ export default function ScreenContent() {
               </button>
               <button
                 onClick={() => setCurrentSection("contact")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 hover:scale-105 transform"
+                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
                 style={{
                   textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
                   boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
@@ -152,7 +152,7 @@ export default function ScreenContent() {
           {currentSection !== "home" && (
             <button
               onClick={() => setCurrentSection("home")}
-              className="bg-green-800 border-4 border-green-300 text-green-100 px-8 py-4 rounded-xl text-[40px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 hover:scale-110 transform"
+              className="bg-green-800 border-4 border-green-300 text-green-100 px-8 py-4 rounded-xl text-[40px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
               style={{
                 textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
                 boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
@@ -169,7 +169,7 @@ export default function ScreenContent() {
             <button
               onClick={() => handleScroll("up")}
               disabled={scrollY === 0}
-              className="w-20 h-20 bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-[80px] h-[100px] bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" }}
             >
               ▲
@@ -177,7 +177,7 @@ export default function ScreenContent() {
             <button
               onClick={() => handleScroll("down")}
               disabled={scrollY >= maxScroll}
-              className="w-20 h-20 bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-[80px] h-[100px] bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" }}
             >
               ▼
@@ -203,13 +203,6 @@ export default function ScreenContent() {
             {renderCurrentSection()}
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        {maxScroll > 0 && (
-          <div className="absolute right-4 bottom-8 text-[25px] text-blue-400 opacity-70">
-            {Math.round((scrollY / maxScroll) * 100)}%
-          </div>
-        )}
       </div>
     </Html>
   );
