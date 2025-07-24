@@ -4,22 +4,22 @@
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, useGLTF } from "@react-three/drei";
-import { Suspense, useState, useRef } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import DesktopContent from "./components/DesktopContent";
 import MobileContent from "./components/MobileContent";
 import DeviceSelector from "./components/DeviceSelector";
 
-function Laptop() {
+function Laptop({ lightsOn }) {
   const { scene } = useGLTF("/desktop.glb");
 
   return (
     <primitive object={scene}>
-      <DesktopContent />
+      {lightsOn && <DesktopContent />}
     </primitive>
   );
 }
 
-function Smartphone({ currentDevice }) {
+function Smartphone({ currentDevice, lightsOn }) {
   const { scene } = useGLTF("/phone.glb");
 
   return (
@@ -30,7 +30,7 @@ function Smartphone({ currentDevice }) {
       rotation={[Math.PI/2, 0, -Math.PI/2]}
       ambientLight={<ambientLight intensity={10} />}
     >
-      {currentDevice === 'mobile' && <MobileContent />}
+      {currentDevice === 'mobile' && lightsOn && <MobileContent />}
     </primitive>
   );
 }
@@ -44,10 +44,77 @@ function Floor() {
   );
 }
 
+function WelcomeOverlay({ onStart, isAnimating }) {
+  return (
+    <div 
+      className={`fixed inset-0 bg-black flex items-center justify-center transition-opacity duration-2000 ${
+        isAnimating ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      }`}
+      style={{ zIndex: 99999 }}
+    >
+      <button
+        onClick={onStart}
+        className="relative mx-20 bg-gradient-to-r from-purple-800 to-pink-600 text-green-300 px-16 py-8 rounded-lg text-3xl font-mono font-bold hover:from-purple-700 hover:to-pink-500 transform hover:scale-110 transition-all duration-300 shadow-2xl animate-pulse border-4 border-green-400 hover:border-yellow-400"
+        style={{
+          fontFamily: 'monospace',
+          textShadow: '0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00',
+          boxShadow: '0 0 20px #ff00ff, 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.2)',
+          background: 'linear-gradient(45deg, #1a1a2e, #16213e, #0f3460)',
+          backgroundSize: '400% 400%',
+          animation: 'gradientShift 3s ease infinite, pulse 2s infinite'
+        }}
+      >
+        <span className="relative z-10">
+           INICIAR AVENTURA 🚀
+        </span>
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-20 rounded-lg animate-ping"></div>
+      </button>
+      <style jsx>{`
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 export default function Home() {
   const [currentDevice, setCurrentDevice] = useState('desktop');
   const [isSelectorCollapsed, setIsSelectorCollapsed] = useState(false);
+  const [lightsOn, setLightsOn] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [lightIntensity, setLightIntensity] = useState(0);
   const controlsRef = useRef();
+
+  // Animate light intensity when starting
+  useEffect(() => {
+    if (isAnimating) {
+      let startTime = null;
+      const duration = 3000; // 3 seconds animation
+      
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = (timestamp - startTime) / duration;
+        
+        if (progress < 1) {
+          // Ease-in-out function for smooth animation
+          const easeProgress = progress < 0.5 
+            ? 2 * progress * progress 
+            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+          
+          setLightIntensity(easeProgress * 2);
+          requestAnimationFrame(animate);
+        } else {
+          setLightIntensity(2);
+          setLightsOn(true);
+        }
+      };
+      
+      requestAnimationFrame(animate);
+    }
+  }, [isAnimating]);
 
   // Define camera positions for each device
   const cameraPositions = {
@@ -100,27 +167,35 @@ export default function Home() {
     }
   };
 
+  const handleStartAdventure = () => {
+    setIsAnimating(true);
+  };
+
   return (
     <main style={{ height: "100vh", margin: 0 }}>
-      <DeviceSelector 
-        onDeviceChange={handleDeviceChange} 
-        currentDevice={currentDevice}
-        isCollapsed={isSelectorCollapsed}
-        onToggleCollapse={() => setIsSelectorCollapsed(!isSelectorCollapsed)}
-      />
+      {!lightsOn && <WelcomeOverlay onStart={handleStartAdventure} isAnimating={isAnimating} />}
+      
+      {lightsOn && (
+        <DeviceSelector 
+          onDeviceChange={handleDeviceChange} 
+          currentDevice={currentDevice}
+          isCollapsed={isSelectorCollapsed}
+          onToggleCollapse={() => setIsSelectorCollapsed(!isSelectorCollapsed)}
+        />
+      )}
       
       <Canvas 
         camera={{ position: cameraPositions[currentDevice].position }} 
         style={{ 
-          background: "#1c1c1c",
-          zIndex: 1000 // Lower z-index than DeviceSelector
+          background: `rgb(${Math.floor(28 * (lightIntensity / 2))}, ${Math.floor(28 * (lightIntensity / 2))}, ${Math.floor(28 * (lightIntensity / 2))})`,
+          zIndex: 1000
         }}
       >
-        <ambientLight intensity={2} />
+        <ambientLight intensity={lightIntensity} />
         <Suspense fallback={null}>
           <Floor />
-          <Laptop />
-          <Smartphone currentDevice={currentDevice} />
+          <Laptop lightsOn={lightsOn} />
+          <Smartphone currentDevice={currentDevice} lightsOn={lightsOn} />
         </Suspense>
         <OrbitControls
           ref={controlsRef}
