@@ -54,8 +54,8 @@ export default function DesktopContent() {
           <div className="text-center px-4 py-6">
             <div className="text-lg mb-4 text-gray-800 font-semibold">Welcome to my Portfolio</div>
             <div className="text-3xl text-blue-600 font-bold mb-2">GONZALO GÓMEZ PIZARRO</div>
-            <div className="text-sm mb-6 text-gray-600">
-              Junior Full Stack Engineer • Python | React.js | GCP
+            <div className="text-sm mb-6 text-gray-950">
+              {"Junior Full Stack Engineer /n Python | React.js | GCP"}
             </div>
 
             <div className="text-xs mb-8 text-gray-500">
@@ -109,16 +109,16 @@ export default function DesktopContent() {
   };
 
   return (
-    <Html transform occlude position={[0, 0.03, -.07097]} rotation={[0,Math.PI,0]} scale={0.1}>
+    <Html transform occlude position={[-.005, 0.03, -.07097]} rotation={[0,Math.PI,0]} scale={0.1}>
       <div
-        className="w-[290px] h-[555px] rounded-b-[43px] bg-gray-50 text-gray-800 overflow-hidden relative"
+        className="w-[275px] h-[545px] rounded-b-[40px] bg-opacity-80 bg-white text-gray-800 overflow-hidden relative"
         style={{
           fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
           boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
         }}
       >
         {/* iPhone-style Header */}
-        <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200">
+        <div className="flex items-center justify-between p-4  border-b border-gray-200">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 rounded-full bg-red-400"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
@@ -141,14 +141,14 @@ export default function DesktopContent() {
             <button
               onClick={() => handleScroll("up")}
               disabled={scrollY === 0}
-              className="w-8 h-8 bg-white border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+              className="w-8 h-8 border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▲
             </button>
             <button
               onClick={() => handleScroll("down")}
               disabled={scrollY >= maxScroll}
-              className="w-8 h-8 bg-white border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+              className="w-8 h-8 border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▼
             </button>
@@ -156,7 +156,7 @@ export default function DesktopContent() {
         )}
 
         {/* Content Area with scroll functionality */}
-        <div className="h-[485px] overflow-hidden relative bg-gray-50">
+        <div className="h-[485px] overflow-hidden relative">
           <div
             ref={contentRef}
             className="absolute top-0 left-0 w-full"

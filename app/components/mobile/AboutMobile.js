@@ -8,7 +8,7 @@ export default function AboutMobile() {
       </div>
       
       <div className="space-y-4">
-        <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-200">
+        <div className="rounded-xl p-4 shadow-lg border border-gray-200">
           <div className="text-lg font-semibold text-gray-800 mb-3">Profile Summary</div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <div>

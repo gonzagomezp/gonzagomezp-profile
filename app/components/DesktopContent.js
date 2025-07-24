@@ -2,12 +2,12 @@
 
 import { Html } from "@react-three/drei";
 import { useState, useRef, useEffect } from "react";
-import WorkExperience from "./WorkExperience";
-import Projects from "./Projects";
-import Skills from "./Skills";
-import Contact from "./Contact";
-import Education from "./Education";
-import About from "./About";
+import WorkExperience from "./desktop/WorkExperience";
+import Projects from "./desktop/Projects";
+import Skills from "./desktop/Skills";
+import Contact from "./desktop/Contact";
+import Education from "./desktop/Education";
+import About from "./desktop/About";
 
 export default function DesktopContent() {
   const [currentSection, setCurrentSection] = useState("home");
