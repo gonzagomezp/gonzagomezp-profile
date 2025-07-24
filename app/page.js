@@ -19,7 +19,7 @@ function Laptop() {
   );
 }
 
-function Smartphone() {
+function Smartphone({ currentDevice }) {
   const { scene } = useGLTF("/phone.glb");
 
   return (
@@ -30,7 +30,7 @@ function Smartphone() {
       rotation={[Math.PI/2, 0, -Math.PI/2]}
       ambientLight={<ambientLight intensity={10} />}
     >
-      <MobileContent />
+      {currentDevice === 'mobile' && <MobileContent />}
     </primitive>
   );
 }
@@ -120,7 +120,7 @@ export default function Home() {
         <Suspense fallback={null}>
           <Floor />
           <Laptop />
-          <Smartphone />
+          <Smartphone currentDevice={currentDevice} />
         </Suspense>
         <OrbitControls
           ref={controlsRef}

@@ -55,7 +55,7 @@ export default function DesktopContent() {
             <div className="text-lg mb-4 text-gray-800 font-semibold">Welcome to my Portfolio</div>
             <div className="text-3xl text-blue-600 font-bold mb-2">GONZALO GÓMEZ PIZARRO</div>
             <div className="text-sm mb-6 text-gray-950">
-              {"Junior Full Stack Engineer /n Python | React.js | GCP"}
+              Junior Full Stack Engineer <br /> Python | React.js | GCP
             </div>
 
             <div className="text-xs mb-8 text-gray-500">
@@ -111,10 +111,9 @@ export default function DesktopContent() {
   return (
     <Html transform occlude position={[-.005, 0.03, -.07097]} rotation={[0,Math.PI,0]} scale={0.1}>
       <div
-        className="w-[275px] h-[545px] rounded-b-[40px] bg-opacity-80 bg-white text-gray-800 overflow-hidden relative"
+        className="w-[275px] h-[545px] rounded-b-[40px] bg-opacity-90 bg-white text-gray-800 overflow-hidden relative"
         style={{
           fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
-          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
         }}
       >
         {/* iPhone-style Header */}
@@ -141,14 +140,14 @@ export default function DesktopContent() {
             <button
               onClick={() => handleScroll("up")}
               disabled={scrollY === 0}
-              className="w-8 h-8 border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+              className="w-8 h-10 bg-neutral-800 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-950 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▲
             </button>
             <button
               onClick={() => handleScroll("down")}
               disabled={scrollY >= maxScroll}
-              className="w-8 h-8 border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+              className="w-8 h-10 bg-neutral-800 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-950 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▼
             </button>
