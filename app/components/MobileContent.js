@@ -2,12 +2,12 @@
 
 import { Html } from "@react-three/drei";
 import { useState, useRef, useEffect } from "react";
-import WorkExperience from "./WorkExperience";
-import Projects from "./Projects";
-import Skills from "./Skills";
-import Contact from "./Contact";
-import Education from "./Education";
-import About from "./About";
+import WorkExperienceMobile from "./mobile/WorkExperienceMobile";
+import ProjectsMobile from "./mobile/ProjectsMobile";
+import SkillsMobile from "./mobile/SkillsMobile";
+import ContactMobile from "./mobile/ContactMobile";
+import EducationMobile from "./mobile/EducationMobile";
+import AboutMobile from "./mobile/AboutMobile";
 
 export default function DesktopContent() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -38,92 +38,69 @@ export default function DesktopContent() {
   const renderCurrentSection = () => {
     switch (currentSection) {
       case "about":
-        return <About />;
+        return <AboutMobile />;
       case "work":
-        return <WorkExperience />;
+        return <WorkExperienceMobile />;
       case "projects":
-        return <Projects />;
+        return <ProjectsMobile />;
       case "skills":
-        return <Skills />;
+        return <SkillsMobile />;
       case "education":
-        return <Education />;
+        return <EducationMobile />;
       case "contact":
-        return <Contact />;
+        return <ContactMobile />;
       default:
         return (
-          <div className="text-center">
-            <div className="text-[50px] mb-4 text-green-300">{">>> WELCOME TO MY 3D PORTFOLIO <<<"}</div>
-            <div className="text-[120px] text-green-400 font-bold tracking-wider">GONZALO GÓMEZ PIZARRO</div>
-            <div className="text-[50px] mb-8 text-green-300">
-              [JUNIOR FULL STACK ENGINEER] • [PYTHON | REACT.JS | GCP]
+          <div className="text-center px-4 py-6">
+            <div className="text-lg mb-4 text-gray-800 font-semibold">Welcome to my Portfolio</div>
+            <div className="text-3xl text-blue-600 font-bold mb-2">GONZALO GÓMEZ PIZARRO</div>
+            <div className="text-sm mb-6 text-gray-600">
+              Junior Full Stack Engineer • Python | React.js | GCP
             </div>
 
-            <div className="text-center text-[30px] mb-[120px] opacity-60 mt-16 pb-8">
-              {"< READY FOR NEW OPPORTUNITIES >"}
+            <div className="text-xs mb-8 text-gray-500">
+              Ready for new opportunities
               <br />
-              {"SELECT A SECTION TO EXPLORE..."}
+              Select a section to explore...
             </div>
-            {/* Navigation Menu - 3x2 Grid */}
-            <div className="grid grid-cols-3 gap-8 mb-12">
+
+            {/* Navigation Menu - 2x3 Grid for mobile */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
               <button
                 onClick={() => setCurrentSection("about")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
-                style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
-                }}
+                className="bg-blue-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-blue-600 transition-all duration-300 shadow-lg"
               >
-                [1] ABOUT
+                About
               </button>
               <button
                 onClick={() => setCurrentSection("work")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
-                style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
-                }}
+                className="bg-purple-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-purple-600 transition-all duration-300 shadow-lg"
               >
-                [2] EXPERIENCE
+                Experience
               </button>
               <button
                 onClick={() => setCurrentSection("projects")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
-                style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
-                }}
+                className="bg-green-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-green-600 transition-all duration-300 shadow-lg"
               >
-                [3] PROJECTS
+                Projects
               </button>
               <button
                 onClick={() => setCurrentSection("skills")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
-                style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
-                }}
+                className="bg-orange-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-orange-600 transition-all duration-300 shadow-lg"
               >
-                [4] SKILLS
+                Skills
               </button>
               <button
                 onClick={() => setCurrentSection("education")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
-                style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
-                }}
+                className="bg-indigo-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-indigo-600 transition-all duration-300 shadow-lg"
               >
-                [5] EDUCATION
+                Education
               </button>
               <button
                 onClick={() => setCurrentSection("contact")}
-                className="bg-green-800 border-4 border-green-300 text-green-100 p-8 rounded-xl text-[50px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
-                style={{
-                  textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                  boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
-                }}
+                className="bg-pink-500 text-white p-3 rounded-xl text-sm font-semibold hover:bg-pink-600 transition-all duration-300 shadow-lg"
               >
-                [6] CONTACT
+                Contact
               </button>
             </div>
           </div>
@@ -134,51 +111,44 @@ export default function DesktopContent() {
   return (
     <Html transform occlude position={[0, 0.03, -.07097]} rotation={[0,Math.PI,0]} scale={0.1}>
       <div
-        className="w-[290px] h-[555px] rounded-b-[43px] bg-black border-4 border-green-500 text-green-400 p-8 rounded-xl font-mono shadow-2xl relative"
+        className="w-[290px] h-[555px] rounded-b-[43px] bg-gray-50 text-gray-800 overflow-hidden relative"
         style={{
-          fontFamily: "'Courier New', 'Lucida Console', 'Monaco', monospace",
-          background: "linear-gradient(45deg, #001100, #002200)",
-          boxShadow: "0 0 50px rgba(0, 255, 0, 0.3), inset 0 0 50px rgba(0, 255, 0, 0.1)",
+          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
+          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
         }}
       >
-        {/* Terminal Header */}
-        <div className="flex items-center justify-between mb-6 border-b-2 border-green-500 pb-4">
-          <div className="flex items-center space-x-4">
-            <div className="w-6 h-6 rounded-full bg-red-500"></div>
-            <div className="w-6 h-6 rounded-full bg-yellow-500"></div>
-            <div className="w-6 h-6 rounded-full bg-green-500"></div>
+        {/* iPhone-style Header */}
+        <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200">
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 rounded-full bg-red-400"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div className="w-3 h-3 rounded-full bg-green-400"></div>
           </div>
-          <div className="text-[40px] text-green-300">PORTFOLIO.EXE</div>
+          <div className="text-sm font-semibold text-gray-700">Portfolio</div>
           {currentSection !== "home" && (
             <button
               onClick={() => setCurrentSection("home")}
-              className="bg-green-800 border-4 border-green-300 text-green-100 px-8 py-4 rounded-xl text-[40px] font-bold hover:bg-green-700 hover:text-white hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/80 transform"
-              style={{
-                textShadow: "0 0 20px rgba(0, 255, 0, 0.8)",
-                boxShadow: "0 0 30px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1)",
-              }}
+              className="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs font-semibold hover:bg-blue-600 transition-all duration-300"
             >
-              [HOME]
+              Home
             </button>
           )}
         </div>
 
         {/* Custom Scroll Controls */}
         {currentSection !== "home" && (
-          <div className={"absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-10"}>
+          <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 z-10">
             <button
               onClick={() => handleScroll("up")}
               disabled={scrollY === 0}
-              className="w-[80px] h-[100px] bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" }}
+              className="w-8 h-8 bg-white border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▲
             </button>
             <button
               onClick={() => handleScroll("down")}
               disabled={scrollY >= maxScroll}
-              className="w-[80px] h-[100px] bg-blue-900 border-2 border-blue-400 text-blue-300 rounded-lg text-[35px] font-bold hover:bg-blue-800 hover:text-blue-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" }}
+              className="w-8 h-8 bg-white border border-gray-300 text-gray-600 rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             >
               ▼
             </button>
@@ -186,12 +156,7 @@ export default function DesktopContent() {
         )}
 
         {/* Content Area with scroll functionality */}
-        <div
-          className="h-[980px] overflow-hidden pr-20 relative"
-          style={{
-            clipPath: "inset(0 0 0 0)",
-          }}
-        >
+        <div className="h-[485px] overflow-hidden relative bg-gray-50">
           <div
             ref={contentRef}
             className="absolute top-0 left-0 w-full"
