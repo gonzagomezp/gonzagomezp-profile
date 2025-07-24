@@ -27,7 +27,7 @@ export default function DesktopContent() {
   }, [currentSection]);
 
   const handleScroll = (direction) => {
-    const scrollAmount = 200; // Increased scroll amount
+    const scrollAmount = 400; // Increased scroll amount
     if (direction === "up") {
       setScrollY((prev) => Math.max(0, prev - scrollAmount));
     } else {
