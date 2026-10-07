@@ -35,11 +35,19 @@ export function PhoneUI({ lang, section, onSection, onLang, onContact, fullscree
 
   useScreenScroll(scrollRef, section, !fullscreen);
 
+  const tabsMounted = useRef(false);
   useEffect(() => {
     // Centra la pestaña activa sin scrollIntoView (que también movería los contenedores padre).
+    // Al montar (p. ej. al abrir pantalla completa) va directo, sin animación.
     const tabs = tabsRef.current;
     const active = tabs?.querySelector('[data-active="true"]');
-    if (active) tabs.scrollTo({ left: active.offsetLeft - tabs.clientWidth / 2 + active.offsetWidth / 2, behavior: "smooth" });
+    if (active) {
+      tabs.scrollTo({
+        left: active.offsetLeft - tabs.clientWidth / 2 + active.offsetWidth / 2,
+        behavior: tabsMounted.current ? "smooth" : "instant",
+      });
+    }
+    tabsMounted.current = true;
   }, [section]);
 
   return (

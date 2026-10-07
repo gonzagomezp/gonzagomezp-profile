@@ -61,13 +61,13 @@ export default function Hud({ lang, onLang, view, onView, onContact, onFullscree
 
       {/* Dock */}
       <nav className="fixed inset-x-0 bottom-5 z-50 flex justify-center px-4">
-        <div className="flex items-center gap-1 rounded-2xl border border-white/10 bg-black/55 p-1.5 shadow-2xl backdrop-blur-xl">
+        <div className="flex items-center gap-0.5 rounded-2xl border border-white/10 bg-black/55 p-1.5 shadow-2xl backdrop-blur-xl sm:gap-1">
           {["desktop", "overview", "mobile"].map((v) => (
             <button
               key={v}
               onClick={() => onView(v)}
               aria-label={t.ui.views[v]}
-              className={`flex items-center gap-2 rounded-xl px-3 py-2 font-mono text-xs transition ${
+              className={`flex items-center gap-2 rounded-xl px-2.5 py-2 font-mono text-xs transition sm:px-3 ${
                 view === v ? "bg-acc/15 text-acc" : "text-dim hover:bg-white/5 hover:text-fg"
               }`}
             >
@@ -80,18 +80,18 @@ export default function Hud({ lang, onLang, view, onView, onContact, onFullscree
             onClick={onFullscreen}
             aria-label={t.ui.fullscreen}
             title={`${t.ui.fullscreen} (F)`}
-            className="flex items-center rounded-xl px-3 py-2 text-dim transition hover:bg-white/5 hover:text-fg"
+            className="flex items-center rounded-xl px-2.5 py-2 text-dim transition hover:bg-white/5 hover:text-fg sm:px-3"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
               <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
             </svg>
           </button>
 
-          <span className="mx-1 h-6 w-px bg-white/10" />
+          <span className="mx-0.5 h-6 w-px bg-white/10 sm:mx-1" />
 
           <button
             onClick={() => onLang(lang === "es" ? "en" : "es")}
-            className="rounded-xl px-3 py-2 font-mono text-xs text-dim transition hover:bg-white/5 hover:text-fg"
+            className="whitespace-nowrap rounded-xl px-2.5 py-2 font-mono text-xs text-dim transition hover:bg-white/5 hover:text-fg sm:px-3"
             aria-label="Language"
           >
             <span className={lang === "es" ? "text-acc" : ""}>ES</span>
