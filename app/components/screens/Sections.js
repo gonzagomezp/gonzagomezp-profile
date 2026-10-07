@@ -305,7 +305,7 @@ function Contact({ t, lang, compact, onContact }) {
   const rows = [
     { key: "whatsapp", label: "WhatsApp", value: CONTACT.whatsappDisplay, href: links.whatsapp, external: true },
     { key: "email", label: t.ui.email, value: CONTACT.email, href: links.email, copy: true },
-    { key: "phone", label: t.ui.phone, value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/\s/g, "")}`, copy: true },
+    { key: "phone", label: t.ui.phone, value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/[^\d+]/g, "")}`, copy: true },
     { key: "linkedin", label: "LinkedIn", value: "linkedin.com/in/gonzagomezp", href: CONTACT.linkedin, external: true },
     { key: "github", label: "GitHub", value: "github.com/gonzagomezp", href: CONTACT.github, external: true },
     { key: "location", label: t.ui.location, value: t.location },

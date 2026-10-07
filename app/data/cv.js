@@ -8,7 +8,7 @@ export const SECTIONS = ["home", "about", "experience", "projects", "skills", "e
 export const CONTACT = {
   name: "Gonzalo Gómez Pizarro",
   email: "gonzalogomezpizarro@gmail.com",
-  phone: "+54 351 2546510",
+  phone: "+54 9 351 279-5265",
   whatsapp: "5493512795265",
   whatsappDisplay: "+54 9 351 279-5265",
   linkedin: "https://www.linkedin.com/in/gonzagomezp/",
