@@ -6,11 +6,13 @@ import { useEffect } from "react";
 // El scroll nativo sobre elementos con transform 3D no es confiable (el navegador
 // a veces no detecta qué contenedor scrollear), así que la rueda y el touch se
 // traducen a scrollTop, con suavizado e inercia. `resetKey` vuelve arriba al cambiar.
-export default function useScreenScroll(ref, resetKey) {
+// Con `manual = false` (pantalla completa, sin 3D) se deja el scroll nativo.
+export default function useScreenScroll(ref, resetKey, manual = true) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     el.scrollTop = 0;
+    if (!manual) return;
 
     let target = 0;
     let raf = 0;
@@ -94,5 +96,5 @@ export default function useScreenScroll(ref, resetKey) {
       el.removeEventListener("touchmove", onTouchMove);
       el.removeEventListener("touchend", onTouchEnd);
     };
-  }, [ref, resetKey]);
+  }, [ref, resetKey, manual]);
 }

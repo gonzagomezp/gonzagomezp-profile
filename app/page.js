@@ -8,6 +8,7 @@ import Scene from "./components/Scene";
 import Hud from "./components/Hud";
 import IntroOverlay from "./components/IntroOverlay";
 import ContactDialog from "./components/ContactDialog";
+import FullscreenView from "./components/FullscreenView";
 import { SECTIONS } from "./data/cv";
 
 const VIEW_ORDER = ["desktop", "overview", "mobile"];
@@ -20,6 +21,7 @@ export default function Home() {
   const [started, setStarted] = useState(false);
   const [introGone, setIntroGone] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [fullscreen, setFullscreen] = useState(null);
   const defaultDevice = useRef("desktop");
 
   // Idioma: el guardado, o el del navegador. En pantallas verticales arranca en el celular.
@@ -73,31 +75,54 @@ export default function Home() {
         if (e.key === "Escape") setContactOpen(false);
         return;
       }
+      if (e.key === "f" || e.key === "F") {
+        setFullscreen((f) => (f ? null : view === "overview" ? defaultDevice.current : view));
+        return;
+      }
+      if (fullscreen && e.key === "Escape") {
+        setFullscreen(null);
+        return;
+      }
       const n = Number(e.key);
       if (e.key.length === 1 && n >= 0 && n < SECTIONS.length) {
         goSection(SECTIONS[n]);
       } else if (e.key === "Escape") {
         if (section !== "home") setSection("home");
         else setView("overview");
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      } else if (!fullscreen && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
         const step = e.key === "ArrowRight" ? 1 : -1;
         setView((v) => VIEW_ORDER[Math.min(VIEW_ORDER.length - 1, Math.max(0, VIEW_ORDER.indexOf(v) + step))]);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [started, ready, start, section, goSection, contactOpen]);
+  }, [started, ready, start, section, goSection, contactOpen, fullscreen, view]);
 
   const openContact = useCallback(() => setContactOpen(true), []);
-  const screen = { lang, section, onSection: goSection, onLang: setLang, onContact: openContact };
+  const openFullscreen = useCallback((device) => {
+    setView(device);
+    setFullscreen(device);
+  }, []);
+  const ui = { lang, section, onSection: goSection, onLang: setLang, onContact: openContact };
+  const screen = { ...ui, onFullscreen: openFullscreen };
 
   return (
     <main className="fixed inset-0 overflow-hidden bg-[#030504]">
-      <Canvas shadows="percentage" dpr={[1, 2]} camera={{ fov: 40, near: 0.5, far: 2000, position: [-200, 260, 160] }} gl={{ antialias: false }}>
+      <Canvas frameloop={fullscreen ? "never" : "always"} shadows="percentage" dpr={[1, 2]} camera={{ fov: 40, near: 0.5, far: 2000, position: [-200, 260, 160] }} gl={{ antialias: false }}>
         <Scene started={started} view={view} onView={setView} screen={screen} onReady={onReady} />
       </Canvas>
 
-      <Hud lang={lang} onLang={setLang} view={view} onView={setView} onContact={openContact} visible={started} />
+      <Hud
+        lang={lang}
+        onLang={setLang}
+        view={view}
+        onView={setView}
+        onContact={openContact}
+        onFullscreen={() => openFullscreen(view === "overview" ? defaultDevice.current : view)}
+        visible={started && !fullscreen}
+      />
+
+      <FullscreenView device={fullscreen} onClose={() => setFullscreen(null)} {...ui} />
 
       <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} lang={lang} />
 

@@ -35,16 +35,21 @@ function useShadows(scene) {
   }, [scene]);
 }
 
+// Los toques sobre las pantallas (DOM) también le llegan a R3F, pero con coordenadas
+// relativas al botón tocado: el rayo saldría de otro punto y "tocaría" el otro
+// dispositivo. Solo cuentan los eventos hechos directamente sobre el canvas.
+const onCanvas = (e) => e.nativeEvent?.target?.tagName === "CANVAS";
+
 // Click en un modelo = acercar la cámara a ese dispositivo (ignorando arrastres).
 function useDeviceClick(device, view, onView) {
   const onClick = (e) => {
-    if (e.delta > 6) return;
+    if (!onCanvas(e) || e.delta > 6) return;
     e.stopPropagation();
     onView(device);
   };
   const onPointerOver = (e) => {
     e.stopPropagation();
-    if (view !== device) document.body.style.cursor = "pointer";
+    if (onCanvas(e) && view !== device) document.body.style.cursor = "pointer";
   };
   const onPointerOut = () => (document.body.style.cursor = "");
   return { onClick, onPointerOver, onPointerOut };

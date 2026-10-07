@@ -26,7 +26,7 @@ const ICONS = {
   ),
 };
 
-export default function Hud({ lang, onLang, view, onView, onContact, visible }) {
+export default function Hud({ lang, onLang, view, onView, onContact, onFullscreen, visible }) {
   const t = CV[lang];
   const [showHint, setShowHint] = useState(true);
 
@@ -75,6 +75,17 @@ export default function Hud({ lang, onLang, view, onView, onContact, visible }) 
               <span className="hidden sm:inline">{t.ui.views[v]}</span>
             </button>
           ))}
+
+          <button
+            onClick={onFullscreen}
+            aria-label={t.ui.fullscreen}
+            title={`${t.ui.fullscreen} (F)`}
+            className="flex items-center rounded-xl px-3 py-2 text-dim transition hover:bg-white/5 hover:text-fg"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+              <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
+            </svg>
+          </button>
 
           <span className="mx-1 h-6 w-px bg-white/10" />
 
