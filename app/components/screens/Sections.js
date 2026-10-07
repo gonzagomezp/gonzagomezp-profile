@@ -6,14 +6,15 @@ import { CV, CONTACT, SECTIONS, contactLinks } from "../../data/cv";
 // Secciones del CV, compartidas por la pantalla de la compu y la del celular.
 // `compact` = layout de una columna (celular).
 
-const FILES = {
-  home: ["~", "whoami"],
-  about: ["perfil", "cat perfil.md"],
-  experience: ["experiencia", "cat experiencia.log"],
-  projects: ["proyectos", "ls proyectos/"],
-  skills: ["skills", "cat stack.json"],
-  education: ["educacion", "cat educacion.md"],
-  contact: ["contacto", "cat contacto.vcf"],
+// Comando que "se ejecutó" para mostrar cada sección (el nombre sale del idioma activo).
+const COMMANDS = {
+  home: () => "whoami",
+  about: (n) => `cat ${n}.md`,
+  experience: (n) => `cat ${n}.log`,
+  projects: (n) => `ls ${n}/`,
+  skills: () => "cat stack.json",
+  education: (n) => `cat ${n}.md`,
+  contact: (n) => `cat ${n}.vcf`,
 };
 
 function useCopy() {
@@ -30,13 +31,15 @@ function useCopy() {
   return [copied, copy];
 }
 
-function Prompt({ section }) {
-  const [path, cmd] = FILES[section];
+function Prompt({ section, t }) {
+  const name = t.ui.nav[section];
+  const path = section === "home" ? "~" : `~/${name}`;
+  const cmd = COMMANDS[section](name);
   return (
     <p className="mb-5 font-mono text-[12px] text-dim">
       <span className="text-acc">gonzalo@portfolio</span>
       <span className="text-faint">:</span>
-      <span className="text-acc2">{path === "~" ? "~" : `~/${path}`}</span>
+      <span className="text-acc2">{path}</span>
       <span className="text-faint">$ </span>
       {cmd}
       <span className="term-cursor" />
@@ -376,7 +379,7 @@ export default function Section({ section, lang, compact = false, onNavigate, on
   const View = VIEWS[section] || Home;
   return (
     <div key={`${section}-${lang}`} className="term-enter">
-      <Prompt section={section} />
+      <Prompt section={section} t={t} />
       {section !== "home" && (
         <h1 className={`mb-6 font-mono ${compact ? "text-[22px]" : "text-[28px]"} font-semibold text-fg`}>
           <span className="text-acc">{">"}</span> {t.ui.nav[section]}
