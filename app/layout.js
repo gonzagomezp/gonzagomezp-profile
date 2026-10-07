@@ -11,35 +11,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const TITLE = "Gonzalo Gómez Pizarro — AI Engineer | Full Stack & Cloud";
+const DESCRIPTION =
+  "Interactive 3D portfolio of Gonzalo Gómez Pizarro, AI Engineer: multi-agent LLM backends, Next.js frontends and GCP infrastructure.";
+
 export const metadata = {
-  title: "Profile > gonzagomezp",
-  description: "A 3D profile page - gonzagomezp",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  metadataBase: new URL("https://gonzagomezp.com"),
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: "Profile > gonzagomezp",
-    description: "A 3D profile page - gonzagomezp",
+    title: TITLE,
+    description: DESCRIPTION,
     url: "https://gonzagomezp.com",
     siteName: "gonzagomezp",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Profile > gonzagomezp",
-    description: "A 3D profile page - gonzagomezp",
-    images: ["/og.png"],
+    title: TITLE,
+    description: DESCRIPTION,
   }
+};
+
+export const viewport = {
+  themeColor: "#030504",
 };
 
 export default function RootLayout({ children }) {
