@@ -17,9 +17,9 @@ export const DESKTOP_SCREEN = {
 };
 const DESKTOP_ZOOM = 2.7;
 
-function LangSwitch({ lang, onLang }) {
+export function LangSwitch({ lang, onLang, className = "text-[11px]" }) {
   return (
-    <div className="flex overflow-hidden rounded-md border border-line font-mono text-[11px]">
+    <div className={`flex overflow-hidden rounded-md border border-line font-mono ${className}`}>
       {["es", "en"].map((l) => (
         <button
           key={l}

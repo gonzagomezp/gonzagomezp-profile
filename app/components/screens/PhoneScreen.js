@@ -4,8 +4,9 @@ import { Html } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import Section from "./Sections";
 import FullscreenButton from "./FullscreenButton";
+import { LangSwitch } from "./DesktopScreen";
 import useScreenScroll from "./useScreenScroll";
-import { CV, SECTIONS } from "../../data/cv";
+import { CV, CONTACT, SECTIONS } from "../../data/cv";
 
 // Pantalla del celular. La pantalla del modelo (6.9x13.6 unidades) equivale a 360x713 px;
 // el contenido se maqueta más chico (~267x528) y se escala un 35% para ocuparla, así la
@@ -34,24 +35,17 @@ function Clock() {
 export function PhoneUI({ lang, section, onSection, onLang, onContact, fullscreen = false, onToggleFullscreen }) {
   const t = CV[lang];
   const scrollRef = useRef(null);
-  const tabsRef = useRef(null);
 
   useScreenScroll(scrollRef, section, !fullscreen);
 
-  const tabsMounted = useRef(false);
-  useEffect(() => {
-    // Centra la pestaña activa sin scrollIntoView (que también movería los contenedores padre).
-    // Al montar (p. ej. al abrir pantalla completa) va directo, sin animación.
-    const tabs = tabsRef.current;
-    const active = tabs?.querySelector('[data-active="true"]');
-    if (active) {
-      tabs.scrollTo({
-        left: active.offsetLeft - tabs.clientWidth / 2 + active.offsetWidth / 2,
-        behavior: tabsMounted.current ? "smooth" : "instant",
-      });
-    }
-    tabsMounted.current = true;
-  }, [section]);
+  // El menú queda abierto solo en la sección donde se abrió: si la sección cambia por
+  // otro lado (teclado, la pantalla de la compu), se cierra solo.
+  const [menuAt, setMenuAt] = useState(null);
+  const menuOpen = menuAt === section;
+  const go = (id) => {
+    onSection(id);
+    setMenuAt(null);
+  };
 
   return (
     <div className="relative flex h-full w-full flex-col overflow-hidden bg-ink text-fg">
@@ -67,45 +61,69 @@ export function PhoneUI({ lang, section, onSection, onLang, onContact, fullscree
       </div>
 
       {/* Encabezado de la app */}
-      <div className="flex shrink-0 items-center justify-between px-5 pb-2 pt-1">
+      <div className="flex shrink-0 items-center justify-between border-b border-line px-5 pb-2.5 pt-1">
         <p className="font-mono text-[13px] text-dim">
           <span className="text-acc">❯</span> gonzalo<span className="text-faint">@</span>portfolio
         </p>
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => onLang(lang === "es" ? "en" : "es")}
-            className="rounded-md border border-line px-2 py-0.5 font-mono text-[11px] text-acc"
-          >
-            {/* Solo el idioma al que se cambia, para que el encabezado entre en un renglón. */}
-            {lang === "es" ? "EN" : "ES"}
-          </button>
           <FullscreenButton lang={lang} active={fullscreen} onClick={onToggleFullscreen} />
+          <button
+            onClick={() => setMenuAt(menuOpen ? null : section)}
+            aria-label={menuOpen ? t.ui.close : t.ui.menu}
+            aria-expanded={menuOpen}
+            title={menuOpen ? t.ui.close : t.ui.menu}
+            className={`grid h-6 w-6 place-items-center rounded-md border transition ${
+              menuOpen ? "border-acc/50 text-acc" : "border-line text-dim hover:border-acc/50 hover:text-acc"
+            }`}
+          >
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+              {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Pestañas */}
-      <div ref={tabsRef} className="relative flex shrink-0 gap-1.5 overflow-x-auto border-b border-line px-4 pb-2.5 [scrollbar-width:none]">
-        {SECTIONS.map((id) => {
-          const active = id === section;
-          return (
-            <button
-              key={id}
-              data-active={active}
-              onClick={() => onSection(id)}
-              className={`shrink-0 rounded-full border px-3 py-1 font-mono text-[11.5px] transition ${
-                active ? "border-acc/50 bg-acc/10 text-acc" : "border-line text-dim"
-              }`}
-            >
-              {t.ui.nav[id]}
-            </button>
-          );
-        })}
-      </div>
+      <div className="relative flex min-h-0 flex-1 flex-col">
+        {/* Contenido */}
+        <main ref={scrollRef} className="term-scroll min-h-0 flex-1 px-4 pb-12 pt-5">
+          <Section section={section} lang={lang} compact onNavigate={onSection} onContact={onContact} />
+        </main>
 
-      {/* Contenido */}
-      <main ref={scrollRef} className="term-scroll min-h-0 flex-1 px-4 pb-12 pt-5">
-        <Section section={section} lang={lang} compact onNavigate={onSection} onContact={onContact} />
-      </main>
+        {/* Menú hamburguesa: tapa el contenido con las secciones, el idioma y el CV */}
+        {menuOpen && (
+          <nav aria-label={t.ui.menu} className="term-enter absolute inset-0 flex flex-col bg-ink px-4 pb-12 pt-4">
+            {SECTIONS.map((id, i) => {
+              const active = id === section;
+              return (
+                <button
+                  key={id}
+                  onClick={() => go(id)}
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-left font-mono text-[15px] transition ${
+                    active ? "bg-acc/10 text-acc" : "text-dim hover:bg-white/3 hover:text-fg"
+                  }`}
+                >
+                  <span className={`w-4 text-[12px] ${active ? "text-acc" : "text-faint"}`}>{i === 0 ? "~" : i}</span>
+                  {t.ui.nav[id]}
+                  {active && <span className="ml-auto text-[11px]">●</span>}
+                </button>
+              );
+            })}
+
+            <div className="mt-auto flex items-center justify-between gap-3 border-t border-line pt-4">
+              <LangSwitch lang={lang} onLang={onLang} className="text-[13px]" />
+              <a
+                href={CONTACT.cv[lang]}
+                download
+                target="_blank"
+                rel="noopener"
+                className="rounded-md bg-acc px-3 py-1.5 font-mono text-[12.5px] font-semibold text-ink transition hover:bg-acc/85"
+              >
+                ↓ {t.ui.downloadCv}
+              </a>
+            </div>
+          </nav>
+        )}
+      </div>
 
       {/* Indicador de inicio */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex h-10 items-end justify-center bg-linear-to-t from-ink via-ink/80 to-transparent pb-2.5">
