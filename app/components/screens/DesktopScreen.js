@@ -8,14 +8,14 @@ import useScreenScroll from "./useScreenScroll";
 import { CV, CONTACT, SECTIONS } from "../../data/cv";
 
 // Pantalla del monitor. El Html mide 2080x1200 px (52x30 unidades del modelo);
-// el contenido se maqueta a ~867x500 y se escala con `zoom: 2.4` para que el
+// el contenido se maqueta a ~770x444 y se escala con `zoom: 2.7` para que el
 // navegador lo rasterice nítido y la interfaz se lea grande.
 export const DESKTOP_SCREEN = {
   position: [17.6, 114, 5.75],
   rotation: [0, Math.PI / 2 + Math.PI, 0],
   size: [52, 30],
 };
-const DESKTOP_ZOOM = 2.4;
+const DESKTOP_ZOOM = 2.7;
 
 function LangSwitch({ lang, onLang }) {
   return (

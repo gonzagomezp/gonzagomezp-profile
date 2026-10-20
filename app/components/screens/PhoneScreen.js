@@ -8,9 +8,9 @@ import useScreenScroll from "./useScreenScroll";
 import { CV, SECTIONS } from "../../data/cv";
 
 // Pantalla del celular. La pantalla del modelo (6.9x13.6 unidades) equivale a 360x713 px;
-// el contenido se maqueta un 20% más chico (300x594) y se escala para ocuparla, así la
+// el contenido se maqueta más chico (~267x528) y se escala un 35% para ocuparla, así la
 // interfaz se lee más grande.
-const PHONE_ZOOM = 1.2;
+const PHONE_ZOOM = 1.35;
 const PHONE_PX = [360 / PHONE_ZOOM, 713 / PHONE_ZOOM];
 export const PHONE_SCREEN = {
   // Un pelo por delante del vidrio del modelo para que la oclusión no la esconda.
@@ -76,7 +76,8 @@ export function PhoneUI({ lang, section, onSection, onLang, onContact, fullscree
             onClick={() => onLang(lang === "es" ? "en" : "es")}
             className="rounded-md border border-line px-2 py-0.5 font-mono text-[11px] text-acc"
           >
-            {lang === "es" ? "ES → EN" : "EN → ES"}
+            {/* Solo el idioma al que se cambia, para que el encabezado entre en un renglón. */}
+            {lang === "es" ? "EN" : "ES"}
           </button>
           <FullscreenButton lang={lang} active={fullscreen} onClick={onToggleFullscreen} />
         </div>

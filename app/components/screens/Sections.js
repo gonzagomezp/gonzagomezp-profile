@@ -17,6 +17,9 @@ const COMMANDS = {
   contact: (n) => `cat ${n}.vcf`,
 };
 
+// Permite cortar mails y URLs largos después de "@" y "/" en pantallas angostas.
+const breakable = (text) => text.split(/(?<=[@/])/).flatMap((part, i) => (i ? [<wbr key={i} />, part] : [part]));
+
 function useCopy() {
   const [copied, setCopied] = useState("");
   const copy = async (text, key) => {
@@ -235,7 +238,7 @@ function Projects({ t, compact }) {
     <div className={`grid gap-4 ${compact ? "grid-cols-1" : "grid-cols-2"}`}>
       {t.projects.map((p) => (
         <Card key={p.name} className="flex flex-col">
-          <div className="flex items-baseline justify-between gap-3">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
             <h2 className="text-[18px] font-semibold text-fg">{p.name}</h2>
             <span className="shrink-0 font-mono text-[11px] text-dim">{p.dates}</span>
           </div>
@@ -354,9 +357,9 @@ function Contact({ t, lang, compact, onContact }) {
                     href={r.href}
                     target={r.external ? "_blank" : undefined}
                     rel={r.external ? "noopener noreferrer" : undefined}
-                    className="truncate font-mono text-[13px] text-fg hover:text-acc2"
+                    className={`${compact ? "" : "truncate"} font-mono text-[13px] text-fg hover:text-acc2`}
                   >
-                    {r.value}
+                    {compact ? breakable(r.value) : r.value}
                     {r.external && " ↗"}
                   </a>
                 ) : (
