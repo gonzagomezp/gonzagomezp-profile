@@ -103,7 +103,7 @@ function CvButton({ lang, t, variant = "solid", label }) {
 function Home({ t, lang, compact, onNavigate, onContact }) {
   return (
     <div>
-      <div className={compact ? "flex flex-col items-start gap-4" : "flex items-center gap-7"}>
+      <div className={compact ? "flex flex-col items-start gap-4" : "flex items-center gap-6"}>
         <img
           src={CONTACT.photo}
           alt={CONTACT.name}
@@ -147,7 +147,8 @@ function Home({ t, lang, compact, onNavigate, onContact }) {
             onClick={() => onNavigate(id)}
             className="group rounded-lg border border-line bg-panel/60 px-3 py-2.5 text-left font-mono text-[12.5px] text-dim transition hover:border-acc/50 hover:bg-acc/5 hover:text-fg"
           >
-            <span className="text-faint group-hover:text-acc">[{i + 1}]</span> {t.ui.nav[id]}
+            {/* En una columna el número va arriba, así el nombre entra en una línea. */}
+            <span className={`text-faint group-hover:text-acc ${compact ? "block" : ""}`}>[{i + 1}]</span> {t.ui.nav[id]}
           </button>
         ))}
       </div>
@@ -324,41 +325,48 @@ function Contact({ t, lang, compact, onContact }) {
       </button>
 
       <Card className="p-0!">
-        {rows.map((r) => (
-          <div
-            key={r.key}
-            className={`flex ${compact ? "flex-col items-start gap-1" : "items-center justify-between gap-4"} border-b border-line px-4 py-3 last:border-b-0`}
-          >
-            <span className="w-24 shrink-0 font-mono text-[11.5px] uppercase tracking-wider text-faint">{r.label}</span>
-            <div className="flex min-w-0 flex-1 items-center justify-between gap-3">
-              {r.href ? (
-                <a
-                  href={r.href}
-                  target={r.external ? "_blank" : undefined}
-                  rel={r.external ? "noopener noreferrer" : undefined}
-                  className="truncate font-mono text-[13px] text-fg hover:text-acc2"
-                >
-                  {r.value}
-                  {r.external && " ↗"}
-                </a>
-              ) : (
-                <span className="font-mono text-[13px] text-fg">{r.value}</span>
-              )}
-              {r.copy && (
-                <button
-                  onClick={() => copy(r.value, r.key)}
-                  className={`shrink-0 rounded-md border px-2 py-1 font-mono text-[11px] transition ${
-                    copied === r.key
-                      ? "border-acc/60 bg-acc/10 text-acc"
-                      : "border-line text-dim hover:border-acc/40 hover:text-acc"
-                  }`}
-                >
-                  {copied === r.key ? t.ui.copied : t.ui.copy}
-                </button>
-              )}
+        {rows.map((r) => {
+          const copyButton = r.copy && (
+            <button
+              onClick={() => copy(r.value, r.key)}
+              className={`shrink-0 rounded-md border px-2 py-1 font-mono text-[11px] transition ${
+                copied === r.key
+                  ? "border-acc/60 bg-acc/10 text-acc"
+                  : "border-line text-dim hover:border-acc/40 hover:text-acc"
+              }`}
+            >
+              {copied === r.key ? t.ui.copied : t.ui.copy}
+            </button>
+          );
+          return (
+            <div
+              key={r.key}
+              className={`flex ${compact ? "flex-col gap-1" : "items-center justify-between gap-4"} border-b border-line px-4 py-3 last:border-b-0`}
+            >
+              {/* En una columna, "copiar" va junto a la etiqueta para que el valor tenga todo el ancho. */}
+              <div className={`flex shrink-0 items-center justify-between gap-3 ${compact ? "" : "w-24"}`}>
+                <span className="font-mono text-[11.5px] uppercase tracking-wider text-faint">{r.label}</span>
+                {compact && copyButton}
+              </div>
+              <div className="flex min-w-0 flex-1 items-center justify-between gap-3">
+                {r.href ? (
+                  <a
+                    href={r.href}
+                    target={r.external ? "_blank" : undefined}
+                    rel={r.external ? "noopener noreferrer" : undefined}
+                    className="truncate font-mono text-[13px] text-fg hover:text-acc2"
+                  >
+                    {r.value}
+                    {r.external && " ↗"}
+                  </a>
+                ) : (
+                  <span className="font-mono text-[13px] text-fg">{r.value}</span>
+                )}
+                {!compact && copyButton}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Card>
 
       <div>

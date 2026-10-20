@@ -16,13 +16,13 @@ const DESCRIPTION =
   "Interactive 3D portfolio of Gonzalo Gómez Pizarro, AI Engineer: multi-agent LLM backends, Next.js frontends and GCP infrastructure.";
 
 export const metadata = {
-  metadataBase: new URL("https://gonzagomezp.com"),
+  metadataBase: new URL("https://cv.gonzagomezp.com.ar"),
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "https://gonzagomezp.com",
+    url: "https://cv.gonzagomezp.com.ar",
     siteName: "gonzagomezp",
     locale: "en_US",
     type: "website",

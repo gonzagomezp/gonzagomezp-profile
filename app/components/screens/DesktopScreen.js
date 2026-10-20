@@ -8,13 +8,14 @@ import useScreenScroll from "./useScreenScroll";
 import { CV, CONTACT, SECTIONS } from "../../data/cv";
 
 // Pantalla del monitor. El Html mide 2080x1200 px (52x30 unidades del modelo);
-// el contenido se maqueta a 1040x600 y se escala con `zoom: 2` para que el
-// navegador lo rasterice nítido.
+// el contenido se maqueta a ~867x500 y se escala con `zoom: 2.4` para que el
+// navegador lo rasterice nítido y la interfaz se lea grande.
 export const DESKTOP_SCREEN = {
   position: [17.6, 114, 5.75],
   rotation: [0, Math.PI / 2 + Math.PI, 0],
   size: [52, 30],
 };
+const DESKTOP_ZOOM = 2.4;
 
 function LangSwitch({ lang, onLang }) {
   return (
@@ -106,7 +107,7 @@ export function DesktopUI({ lang, section, onSection, onLang, onContact, fullscr
         </nav>
 
         {/* Contenido */}
-        <main ref={scrollRef} className={`term-scroll min-w-0 flex-1 ${compact ? "px-5 py-6" : "px-9 py-7"}`}>
+        <main ref={scrollRef} className={`term-scroll min-w-0 flex-1 ${compact ? "px-5 py-6" : "px-8 py-7"}`}>
           <div className={fullscreen && !compact ? "mx-auto max-w-4xl" : ""}>
             <Section section={section} lang={lang} compact={compact} onNavigate={onSection} onContact={onContact} />
           </div>
@@ -125,7 +126,7 @@ export default function DesktopScreen({ onActivate, anchorRef, onFullscreen, ...
           className="h-[1200px] w-[2080px] overflow-hidden rounded-[18px] bg-ink"
           style={{ boxShadow: "inset 0 0 120px rgb(0 0 0 / 0.65)" }}
         >
-          <div className="h-[600px] w-[1040px]" style={{ zoom: 2 }}>
+          <div style={{ zoom: DESKTOP_ZOOM, width: 2080 / DESKTOP_ZOOM, height: 1200 / DESKTOP_ZOOM }}>
             <DesktopUI {...ui} onToggleFullscreen={() => onFullscreen("desktop")} />
           </div>
         </div>

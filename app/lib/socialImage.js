@@ -44,7 +44,7 @@ export async function socialImage() {
           <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.05, marginTop: 22, letterSpacing: -2 }}>Gonzalo</div>
           <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.05, letterSpacing: -2 }}>Gómez Pizarro</div>
           <div style={{ fontSize: 32, color: "#4ade80", marginTop: 26 }}>AI Engineer | Full Stack & Cloud</div>
-          <div style={{ fontSize: 24, color: "#56665d", marginTop: 36 }}>gonzagomezp.com</div>
+          <div style={{ fontSize: 24, color: "#56665d", marginTop: 36 }}>cv.gonzagomezp.com.ar</div>
         </div>
       </div>
     ),

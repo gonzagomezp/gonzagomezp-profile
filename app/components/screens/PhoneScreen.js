@@ -7,13 +7,16 @@ import FullscreenButton from "./FullscreenButton";
 import useScreenScroll from "./useScreenScroll";
 import { CV, SECTIONS } from "../../data/cv";
 
-// Pantalla del celular. Se maqueta a 360x713 px (ancho de un teléfono real) y se
-// escala para ocupar el mismo tamaño que la pantalla del modelo (6.9x13.6 unidades).
+// Pantalla del celular. La pantalla del modelo (6.9x13.6 unidades) equivale a 360x713 px;
+// el contenido se maqueta un 20% más chico (300x594) y se escala para ocuparla, así la
+// interfaz se lee más grande.
+const PHONE_ZOOM = 1.2;
+const PHONE_PX = [360 / PHONE_ZOOM, 713 / PHONE_ZOOM];
 export const PHONE_SCREEN = {
   // Un pelo por delante del vidrio del modelo para que la oclusión no la esconda.
   position: [-0.005, 0.03, -0.0735],
   rotation: [0, Math.PI, 0],
-  scale: 0.1 * (275 / 360),
+  scale: 0.1 * (275 / 360) * PHONE_ZOOM,
 };
 
 function Clock() {
@@ -99,7 +102,7 @@ export function PhoneUI({ lang, section, onSection, onLang, onContact, fullscree
       </div>
 
       {/* Contenido */}
-      <main ref={scrollRef} className="term-scroll min-h-0 flex-1 px-5 pb-12 pt-5">
+      <main ref={scrollRef} className="term-scroll min-h-0 flex-1 px-4 pb-12 pt-5">
         <Section section={section} lang={lang} compact onNavigate={onSection} onContact={onContact} />
       </main>
 
@@ -115,7 +118,16 @@ export default function PhoneScreen({ onActivate, anchorRef, occlude, onFullscre
   return (
     <group ref={anchorRef} position={PHONE_SCREEN.position} rotation={PHONE_SCREEN.rotation}>
       <Html transform occlude={occlude} zIndexRange={[20, 0]} scale={PHONE_SCREEN.scale}>
-        <div onPointerDown={onActivate} className="h-[713px] w-[360px] overflow-hidden rounded-b-[52px] rounded-t-[14px] border border-line">
+        <div
+          onPointerDown={onActivate}
+          className="overflow-hidden border border-line"
+          style={{
+            width: PHONE_PX[0],
+            height: PHONE_PX[1],
+            // Las mismas esquinas que el vidrio del modelo (14 y 52 px a 360 de ancho).
+            borderRadius: `${14 / PHONE_ZOOM}px ${14 / PHONE_ZOOM}px ${52 / PHONE_ZOOM}px ${52 / PHONE_ZOOM}px`,
+          }}
+        >
           <PhoneUI {...ui} onToggleFullscreen={() => onFullscreen("mobile")} />
         </div>
       </Html>
