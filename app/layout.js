@@ -19,6 +19,9 @@ export const metadata = {
   metadataBase: new URL("https://cv.gonzagomezp.com.ar"),
   title: TITLE,
   description: DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
